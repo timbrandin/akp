@@ -52,5 +52,11 @@ Template.list.helpers({
 
 Template.listevents({
 	'click input': function(e, t) {
-	}
+	}, 
+  'click button.location': function() {
+    if (navigator.geolocation) {
+      var position = navigator.geolocation.getCurrentPosition();
+      console.log(position);
+    }
+  }
 });
