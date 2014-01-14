@@ -74,8 +74,8 @@ Template.list.events({
 		Session.set("name", t.find(".name").value);
 		Session.set("creator", t.find(".creator").value);
 		var type = t.find(".type").value;
-      	console.log("Test: "+name+" "+creator+" "+type+" "+Session.get("apk"));
-      	if(name!="" && creator!="") {
+      	//console.log("Test: "+name+" : "+creator+" : "+type+" : "+Session.get("apk"));
+      	if(Session.get("name")!="" && Session.get("creator")!="") {
 			Calculations.insert({
 				name: Session.get("name"), 
 				creator: Session.get("creator"), 
