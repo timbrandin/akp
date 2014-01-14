@@ -37,7 +37,7 @@
 
 <template name="list">
   <div class="row">
-    <table>
+    <table class="table">
       <tr>
         <th>Dryckesnamn</th>
         <th>Namn</th>
@@ -48,18 +48,18 @@
       </tr>
       {{#with latest}}
       <tr>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
+        <td><input type="text" id="name"></td>
+        <td><input type="text" id="creator"></td>
         <td>
-          <select>
+          <select id="type">
             <option>Öl</option>
             <option>Vin</option>
             <option>Sprit</option>
           </select>
         </td>
-        <td><button class="btn location">Get location</button></td>
+        <td><button class="btn location">Hämta plats</button></td>
         <td><strong>{{apk}}</strong></td>
-        <td>{{date}}</td>
+        <td><button class="btn btn-primary save">Spara</button></td>
       </tr>
       {{/with}}
       {{#each items}}
