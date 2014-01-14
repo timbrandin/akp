@@ -57,7 +57,12 @@
             <option>Sprit</option>
           </select>
         </td>
-        <td><button class="btn location">Hämta plats</button></td>
+        <td>
+          {{#if current_location}}
+            {{current_location}}
+          {{else}}
+            <button class="btn location">Hämta plats</button></td>
+          {{/if}}
         <td><strong>{{apk}}</strong></td>
         <td><button class="btn btn-primary save">Spara</button></td>
       </tr>
