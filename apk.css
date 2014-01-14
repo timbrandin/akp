@@ -1,0 +1,29 @@
+/* CSS declarations go here */
+h1 {
+    font-weight: bold;
+    font-size: 150%;
+    padding: 8px 6px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 110%;
+    padding: 8px 6px;
+    text-align: center;
+}
+
+#apk {
+    padding: 20px 6px;
+    font-size: 200%;
+    text-align: center;
+    border: solid 2px #ddd;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+#apk .lowerbetter {
+    padding: 20px 6px;
+    font-size: 60%;
+    text-align: center;
+}
+
