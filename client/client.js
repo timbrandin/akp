@@ -18,6 +18,8 @@ Template.page.events({
   },
   'keyup input.mangd': function(e, t) {
     Session.set("mangd", t.find(".mangd").value);
+    
+    Session.set('location', 'hoho');
   },
   'keyup input.halt': function(e, t) {
     Session.set("halt", t.find(".halt").value / 100);
@@ -33,6 +35,9 @@ Template.list.helpers({
   },
   date: function() {
     return moment(new Date(this.datetime)).format('MMM DD, HH:mm:ss');
+  },
+  location: function() {
+    return Session.get('location');
   },
   latest: function() {
     var apk = Session.get("apk");
