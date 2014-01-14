@@ -49,8 +49,12 @@ Template.list.helpers({
 });
 
 Template.list.events({
-	'click input': function(e, t) {
-	}, 
+	'click button.save': function(e, t) {
+		var drink = t.find(".name").value;
+		var creator = t.find(".creator").value;
+		var type = t.find(".type").value;
+      	console.log("Test: "+drink+" "+creator+" "+type+" "+Session.get("apk"));
+	},
   'click button.location': function() {
     if (navigator.geolocation) {
       var position = navigator.geolocation.getCurrentPosition();

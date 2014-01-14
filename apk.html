@@ -32,7 +32,7 @@
 
     </div>
   </div>
-  {{> list}}
+  	{{> list}}
 </template>
 
 <template name="list">
@@ -48,10 +48,10 @@
       </tr>
       {{#with latest}}
       <tr>
-        <td><input type="text" id="name"></td>
-        <td><input type="text" id="creator"></td>
+        <td><input type="text" class="name" id="name"></td>
+        <td><input type="text" class="creator" id="creator"></td>
         <td>
-          <select id="type">
+          <select class="type" id="type">
             <option>Öl</option>
             <option>Vin</option>
             <option>Sprit</option>
