@@ -1,5 +1,6 @@
 <head>
   <title>APK Uträknare</title>
+  <script type="text/javascript" src="/momentjs/min/moment.min.js"></script>
 </head>
 
 <body>
@@ -45,6 +46,16 @@
         <th>APK</th>
         <th>Datum & Tid</th>
       </tr>
+      {{#with latest}}
+      <tr>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+        <td>{{apk}}</td>
+        <td>{{date}}</td>
+      </tr>
+      {{/with}}
       {{#each items}}
       <tr>
         <td>{{name}}</td>

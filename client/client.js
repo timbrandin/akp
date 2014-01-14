@@ -30,7 +30,6 @@ Template.list.helpers({
     return Calculations.find();
   },
   date: function() {
-//    return ;
-      return moment(new Date(this.datetime)).format('DD MMMM - YYYY');
+    return moment(new Date(this.datetime)).format('DD MMMM - YYYY');
   }
 });
