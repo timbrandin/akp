@@ -71,7 +71,7 @@
         </td>
         <td>
           {{#if current_location}}
-            {{current_location.coords.latitude}} {{current_location.coords.longitude}}
+			{{latlon curren_location}}
           {{else}}
             <button class="btn location">Hämta plats</button></td>
           {{/if}}
@@ -84,7 +84,7 @@
         <td>{{name}}</td>
         <td>{{creator}}</td>
         <td>{{type}}</td>
-        <td>{{location.coords.latitude}} {{location.coords.longitude}}</td>
+        <td>{{latlon location}}</td>
         <td><strong>{{apk}}</strong></td>
         <td>{{date}}</td>
       </tr>

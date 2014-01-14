@@ -42,6 +42,14 @@ Template.page.events({
   }
 });
 
+Handlebars.registerHelper("latlon", function(position) {
+	console.log(position);
+	if (position) {
+		return Math.round(10000*position.coords.latitude)/10000+" "+Math.round(10000*position.coords.longitude)/10000;
+	}
+	return "";
+})
+
 Template.list.helpers({
   items: function() {
     return Calculations.find();
