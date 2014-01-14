@@ -57,8 +57,9 @@ Template.list.events({
 	},
   'click button.location': function() {
     if (navigator.geolocation) {
-      var position = navigator.geolocation.getCurrentPosition();
-      console.log(position);
+      var position = navigator.geolocation.getCurrentPosition(function(position){
+        console.log(position);
+      });
     }
   }
 });
