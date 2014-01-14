@@ -49,3 +49,8 @@ Template.list.helpers({
     }
   }
 });
+
+Template.listevents({
+	'click input': function(e, t) {
+	}
+});
