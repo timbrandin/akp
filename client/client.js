@@ -10,18 +10,18 @@ Session.set("location", "");
 Template.apkbox.preserve(['.box']);
 
 Template.apkbox.helpers({
-	apk: function() {
-  		var apk = Math.round(100 * (Session.get("mangd") * Session.get("halt")) / Session.get("pris")) / 100;
-  		Session.set('apk', apk);
-  		return apk;
-	},
-	state: function() {
-		if (Session.get('apk') < 1) {
-			return "low";
-		} else {
-			return "high";
-		}
-	}
+  apk: function() {
+    var apk = Math.round(100 * (Session.get("mangd") * Session.get("halt")) / Session.get("pris")) / 100;
+    Session.set('apk', apk);
+    return apk;
+  },
+  state: function() {
+    if (Session.get('apk') < 1) {
+      return "low";
+    } else {
+      return "high";
+    }
+  }
 });
 
 Template.page.events({
@@ -43,13 +43,13 @@ Template.page.events({
 });
 
 Handlebars.registerHelper("latlon", function(position) {
-	console.log(position);
-	if (position) {
-		return Math.round(10000*position.coords.latitude)/10000+" "+Math.round(10000*position.coords.longitude)/10000;
-	}
-	return "";
-	// link
-	// https://www.google.se/maps/preview#!q=57.7034%2C11.933
+  console.log(position);
+  if (position) {
+    return Math.round(10000 * position.coords.latitude) / 10000 + " " + Math.round(10000 * position.coords.longitude) / 10000;
+  }
+  return "";
+  // link
+  // https://www.google.se/maps/preview#!q=57.7034%2C11.933
 })
 
 Template.list.helpers({
@@ -72,33 +72,33 @@ Template.list.helpers({
     }
   },
   nameErrorMessage: function() {
-  	return (Session.get("name")=="")?"Dryckesnamn saknas":"";
+    return (Session.get("name") == "") ? "Dryckesnamn saknas" : "";
   },
   creatorErrorMessage: function() {
-  	return (Session.get("creator")=="")?"Ditt namn saknas":"";
+    return (Session.get("creator") == "") ? "Ditt namn saknas" : "";
   }
 });
 
 Template.list.events({
-	'click button.save': function(e, t) {
-		Session.set("name", t.find(".name").value);
-		Session.set("creator", t.find(".creator").value);
-		var type = t.find(".type").value;
-      	//console.log("Test: "+name+" : "+creator+" : "+type+" : "+Session.get("apk"));
-      	if(Session.get("name")!="" && Session.get("creator")!="") {
-			Calculations.insert({
-				name: Session.get("name"), 
-				creator: Session.get("creator"), 
-				type: type, 
-				location: Session.get("location"),
-				apk: Session.get("apk"), 
-				datetime: (new Date()).getTime()
-			});
-      	}
-	},
+  'click button.save': function(e, t) {
+    Session.set("name", t.find(".name").value);
+    Session.set("creator", t.find(".creator").value);
+    var type = t.find(".type").value;
+    //console.log("Test: "+name+" : "+creator+" : "+type+" : "+Session.get("apk"));
+    if (Session.get("name") != "" && Session.get("creator") != "") {
+      Calculations.insert({
+        name: Session.get("name"),
+        creator: Session.get("creator"),
+        type: type,
+        location: Session.get("location"),
+        apk: Session.get("apk"),
+        datetime: (new Date()).getTime()
+      });
+    }
+  },
   'click button.location': function() {
     if (navigator.geolocation) {
-      var position = navigator.geolocation.getCurrentPosition(function(position){
+      var position = navigator.geolocation.getCurrentPosition(function(position) {
         Session.set('location', position);
       });
     }

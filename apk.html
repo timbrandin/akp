@@ -1,13 +1,30 @@
 <head>
   <title>APK Uträknare</title>
   <script type="text/javascript" src="/momentjs/min/moment.min.js"></script>
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+              m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-47147417-1', 'meteor.com');
+    ga('send', 'pageview');
+
+  </script>
 </head>
 
 <body>
   <div class="container">
     {{> page}}
-  	{{> apkbox}}
-  	{{> list}}
+    {{> apkbox}}
+    {{> list}}
   </div>
 </body>
 
@@ -40,56 +57,56 @@
 
 <template name="list">
   <div class="row">
-  <div id="tablestyles">
-    <table class="table">
-      <tr>
-        <th>Dryckesnamn</th>
-        <th>Namn</th>
-        <th>Typ</th>
-        <th>Plats</th>
-        <th>APK</th>
-        <th>Datum & Tid</th>
-      </tr>
-      {{#with latest}}
-      <tr>
-        <td>
-      		<div class="control-group {{#if nameErrorMessage}}error{{/if}}">
-      			<input type="text" class="name" id="name" required placeholder="{{nameErrorMessage}}">
-      		</div>
-      	</td>
-        <td>
-      		<div class="control-group {{#if creatorErrorMessage}}error{{/if}}">
-      			<input type="text" class="creator" id="creator" required placeholder="{{creatorErrorMessage}}">
-      		</div>
-      	</td>
-        <td>
-          <select class="type" id="type">
-            <option>Öl</option>
-            <option>Vin</option>
-            <option>Sprit</option>
-          </select>
-        </td>
-        <td>
-          {{#if current_location}}
-			{{latlon curren_location}}
-          {{else}}
+    <div id="tablestyles">
+      <table class="table">
+        <tr>
+          <th>Dryckesnamn</th>
+          <th>Namn</th>
+          <th>Typ</th>
+          <th>Plats</th>
+          <th>APK</th>
+          <th>Datum & Tid</th>
+        </tr>
+        {{#with latest}}
+        <tr>
+          <td>
+            <div class="control-group {{#if nameErrorMessage}}error{{/if}}">
+              <input type="text" class="name" id="name" required placeholder="{{nameErrorMessage}}">
+            </div>
+          </td>
+          <td>
+            <div class="control-group {{#if creatorErrorMessage}}error{{/if}}">
+              <input type="text" class="creator" id="creator" required placeholder="{{creatorErrorMessage}}">
+            </div>
+          </td>
+          <td>
+            <select class="type" id="type">
+              <option>Öl</option>
+              <option>Vin</option>
+              <option>Sprit</option>
+            </select>
+          </td>
+          <td>
+            {{#if current_location}}
+            {{latlon curren_location}}
+            {{else}}
             <button class="btn location">Hämta plats</button></td>
           {{/if}}
-        <td><strong>{{apk}}</strong></td>
-        <td><button class="btn btn-primary save">Spara</button></td>
-      </tr>
-      {{/with}}
-      {{#each items}}
-      <tr>
-        <td>{{name}}</td>
-        <td>{{creator}}</td>
-        <td>{{type}}</td>
-        <td>{{latlon location}}</td>
-        <td><strong>{{apk}}</strong></td>
-        <td>{{date}}</td>
-      </tr>
-      {{/each}}
-    </table>
-  </div>
+          <td><strong>{{apk}}</strong></td>
+          <td><button class="btn btn-primary save">Spara</button></td>
+        </tr>
+        {{/with}}
+        {{#each items}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{creator}}</td>
+          <td>{{type}}</td>
+          <td>{{latlon location}}</td>
+          <td><strong>{{apk}}</strong></td>
+          <td>{{date}}</td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
   </div>
 </template>
