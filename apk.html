@@ -67,7 +67,7 @@
         </td>
         <td>
           {{#if current_location}}
-            {{current_location}}
+            {{current_location.coords.latitude}} {{current_location.coords.longitude}}
           {{else}}
             <button class="btn location">Hämta plats</button></td>
           {{/if}}

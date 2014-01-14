@@ -68,7 +68,7 @@ Template.list.events({
   'click button.location': function() {
     if (navigator.geolocation) {
       var position = navigator.geolocation.getCurrentPosition(function(position){
-        console.log(position);
+        Session.set('location', position);
       });
     }
   },
