@@ -32,7 +32,7 @@ Template.list.helpers({
     return Calculations.find();
   },
   date: function() {
-    return moment(new Date(this.datetime)).format('MMM DD, H:m');
+    return moment(new Date(this.datetime)).format('MMM DD, HH:mm:ss');
   },
   latest: function() {
     var apk = Session.get("apk");
