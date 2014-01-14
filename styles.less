@@ -16,13 +16,20 @@ h3 {
     padding: 20px 6px;
     font-size: 200%;
     text-align: center;
-    border: solid 2px #ddd;
     border-radius: 10px;
-    background-color: #eee;
     transition: all 0.3s ease-in;
+    
+    &.low {
+    	background-color: #FBFF73;
+    	border: solid 2px #E8ED6B;
+    }
+    &.high {
+    	background-color: #70FF83;
+    	border: solid 2px #68F078;
+    }
 }
 
-#apk .lowerbetter {
+#apk .higherbetter {
     padding: 20px 6px;
     font-size: 60%;
     text-align: center;
@@ -40,6 +47,10 @@ h3 {
 
 table {
   width: 100%;
+  
+  input {
+  	width: 80%;
+  }
 }
 
 .type {

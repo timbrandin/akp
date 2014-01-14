@@ -6,6 +6,8 @@
 <body>
   <div class="container">
     {{> page}}
+  	{{> apkbox}}
+  	{{> list}}
   </div>
 </body>
 
@@ -25,14 +27,15 @@
       <input type="text" class="pris" id="pris" placeholder="Pris" />
     </div>
   </div>
-  <div class="row">
-    <div class="span4 offset4" id="apk">
-      {{apk}} APK<br>
-      <span class="lowerbetter">(högre är billigare)</span>
+</template>
 
+<template name="apkbox">
+  <div class="row">
+    <div class="box span4 offset4 {{state}}" id="apk">
+      {{apk}} APK<br>
+      <span class="higherbetter">(högre är billigare)</span>
     </div>
   </div>
-  	{{> list}}
 </template>
 
 <template name="list">
@@ -81,7 +84,7 @@
         <td>{{name}}</td>
         <td>{{creator}}</td>
         <td>{{type}}</td>
-        <td>{{location}}</td>
+        <td>{{location.coords.latitude}} {{location.coords.longitude}}</td>
         <td><strong>{{apk}}</strong></td>
         <td>{{date}}</td>
       </tr>
