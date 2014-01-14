@@ -45,7 +45,11 @@ Template.list.helpers({
   }
 });
 
-Template.listevents({
-	'click input': function(e, t) {
+Template.list.events({
+	'click button.save': function(e, t) {
+		var drink = t.find(".name").value;
+		var creator = t.find(".creator").value;
+		var type = t.find(".type").value;
+      	console.log("Test: "+drink+" "+creator+" "+type+" "+Session.get("apk"));
 	}
 });
