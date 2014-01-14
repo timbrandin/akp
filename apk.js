@@ -1,3 +1,5 @@
+Calculations = new Meteor.Collection("calculations");
+
 if (Meteor.isClient) {
 
 	Session.set("mangd", 1);
