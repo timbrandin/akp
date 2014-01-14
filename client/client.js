@@ -36,7 +36,7 @@ Template.list.helpers({
   date: function() {
     return moment(new Date(this.datetime)).format('MMM DD, HH:mm:ss');
   },
-  location: function() {
+  current_location: function() {
     return Session.get('location');
   },
   latest: function() {
