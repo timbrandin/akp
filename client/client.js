@@ -41,16 +41,14 @@ Template.list.helpers({
   },
   latest: function() {
     var apk = Session.get("apk");
-    if (apk !== undefined && apk > 0) {
-      return {
-        apk: Session.get("apk"),
-        datetime: new Date()
-      };
-    }
+    return {
+      apk: Session.get("apk"),
+      datetime: new Date()
+    };
   }
 });
 
-Template.listevents({
+Template.list.events({
 	'click input': function(e, t) {
 	}, 
   'click button.location': function() {
