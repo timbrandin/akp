@@ -2,6 +2,8 @@
 Session.set("mangd", 1);
 Session.set("halt", 0.01);
 Session.set("pris", 1);
+Session.set("name", "a");
+Session.set("creator", "a");
 
 Template.page.apk = function() {
   var apk = Math.round(100 * (Session.get("mangd") * Session.get("halt")) / Session.get("pris")) / 100;
@@ -47,6 +49,12 @@ Template.list.helpers({
         datetime: new Date()
       };
     }
+  },
+  nameErrorMessage: function() {
+  	return (Session.get("name")=="")?"Dryckesnamn saknas":"";
+  },
+  creatorErrorMessage: function() {
+  	return (Session.get("creator")=="")?"Ditt namn saknas":"";
   }
 });
 
@@ -62,5 +70,11 @@ Template.list.events({
       var position = navigator.geolocation.getCurrentPosition();
       console.log(position);
     }
+  },
+  'keyup input.name, blur input.name': function(e, t) {
+    Session.set("name", t.find(".name").value);
+  },
+  'keyup input.creator, blur input.creator': function(e, t) {
+    Session.set("creator", t.find(".creator").value);
   }
 });

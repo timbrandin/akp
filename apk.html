@@ -48,8 +48,16 @@
       </tr>
       {{#with latest}}
       <tr>
-        <td><input type="text" class="name" id="name"></td>
-        <td><input type="text" class="creator" id="creator"></td>
+        <td>
+      		<div class="control-group {{#if nameErrorMessage}}error{{/if}}">
+      			<input type="text" class="name" id="name" required placeholder="{{nameErrorMessage}}">
+      		</div>
+      	</td>
+        <td>
+      		<div class="control-group {{#if creatorErrorMessage}}error{{/if}}">
+      			<input type="text" class="creator" id="creator" required placeholder="{{creatorErrorMessage}}">
+      		</div>
+      	</td>
         <td>
           <select class="type" id="type">
             <option>Öl</option>
