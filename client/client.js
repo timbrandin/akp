@@ -4,7 +4,9 @@ Session.set("halt", 0.01);
 Session.set("pris", 1);
 
 Template.page.apk = function() {
-  return Math.round(100 * (Session.get("mangd") * Session.get("halt")) / Session.get("pris")) / 100;
+  var apk = Math.round(100 * (Session.get("mangd") * Session.get("halt")) / Session.get("pris")) / 100;
+  Session.set('apk', apk);
+  return apk;
 };
 
 Template.page.events({
@@ -30,6 +32,15 @@ Template.list.helpers({
     return Calculations.find();
   },
   date: function() {
-    return moment(new Date(this.datetime)).format('DD MMMM - YYYY');
+    return moment(new Date(this.datetime)).format('MMM DD, H:m');
+  },
+  latest: function() {
+    var apk = Session.get("apk");
+    if (apk !== undefined && apk > 0) {
+      return {
+        apk: Session.get("apk"),
+        datetime: new Date()
+      };
+    }
   }
 });
