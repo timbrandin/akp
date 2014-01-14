@@ -4,30 +4,57 @@
 
 <body>
   <div class="container">
-  {{> page}}
+    {{> page}}
   </div>
 </body>
 
 <template name="page">
   <h1>APK Uträknare (Alkohol per Krona)</h1>
   <div class="row">
-	  <div class="span4" style="text-align: center">
-		<label>Mängd i ml:</label>
-		<input type="text" class="mangd" id="mangd" placeholder="Mängd" />
-	  </div>
-	  <div class="span4" style="text-align: center">
-		<label>Alkoholhalt i %:</label>
-		<input type="text" class="halt" id="halt" placeholder="Alkoholhalt" />
-	  </div>
-	  <div class="span4" style="text-align: center">
-		<label>Pris i sek:</label>
-		<input type="text" class="pris" id="pris" placeholder="Pris" />
-	  </div>
+    <div class="span4" style="text-align: center">
+      <label>Mängd i ml:</label>
+      <input type="text" class="mangd" id="mangd" placeholder="Mängd" />
+    </div>
+    <div class="span4" style="text-align: center">
+      <label>Alkoholhalt i %:</label>
+      <input type="text" class="halt" id="halt" placeholder="Alkoholhalt" />
+    </div>
+    <div class="span4" style="text-align: center">
+      <label>Pris i sek:</label>
+      <input type="text" class="pris" id="pris" placeholder="Pris" />
+    </div>
   </div>
   <div class="row">
-  	<div class="span4 offset4" id="apk">
-  		{{apk}} APK<br>
-  		<span class="lowerbetter">(högre är billigare)</span>
-  	</div>
+    <div class="span4 offset4" id="apk">
+      {{apk}} APK<br>
+      <span class="lowerbetter">(högre är billigare)</span>
+
+    </div>
+  </div>
+  {{> list}}
+</template>
+
+<template name="list">
+  <div class="row">
+    <table>
+      <tr>
+        <th>Dryckesnamn</th>
+        <th>Namn</th>
+        <th>Typ</th>
+        <th>Plats</th>
+        <th>APK</th>
+        <th>Datum & Tid</th>
+      </tr>
+      {{#each items}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{creator}}</td>
+        <td>{{type}}</td>
+        <td>{{location}}</td>
+        <td>{{apk}}</td>
+        <td>{{datetime}}</td>
+      </tr>
+      {{/each}}
+    </table>
   </div>
 </template>
