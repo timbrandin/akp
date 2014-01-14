@@ -28,5 +28,9 @@ Template.page.events({
 Template.list.helpers({
   items: function() {
     return Calculations.find();
+  },
+  date: function() {
+//    return ;
+      return moment(new Date(this.datetime)).format('DD MMMM - YYYY');
   }
 });

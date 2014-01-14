@@ -1,0 +1,12 @@
+{
+  "name": "apk",
+  "version": "0.0.3",
+  "description": "Calculate the alcohol per crown.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timbrandin/apk.git"
+  },
+  "dependencies": {
+    "bower": "latest"
+  }
+}
