@@ -48,6 +48,8 @@ Handlebars.registerHelper("latlon", function(position) {
 		return Math.round(10000*position.coords.latitude)/10000+" "+Math.round(10000*position.coords.longitude)/10000;
 	}
 	return "";
+	// link
+	// https://www.google.se/maps/preview#!q=57.7034%2C11.933
 })
 
 Template.list.helpers({
