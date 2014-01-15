@@ -11,7 +11,7 @@ Template.apkbox.preserve(['.box']);
 
 Template.apkbox.helpers({
   apk: function() {
-    var apk = Math.round(100 * (Session.get("mangd") * Session.get("halt")) / Session.get("pris")) / 100;
+    var apk = Math.round(100 * (Session.get("mangd") * (Session.get("halt"))/100) / Session.get("pris")) / 100;
     Session.set('apk', apk);
     return apk;
   },
@@ -31,15 +31,27 @@ Template.page.events({
       //console.log("You pressed the button");
     }
   },
-  'keyup input.mangd': function(e, t) {
+  'keyup input.mangd, blur input.mangd': function(e, t) {
     Session.set("mangd", t.find(".mangd").value);
   },
-  'keyup input.halt': function(e, t) {
-    Session.set("halt", t.find(".halt").value / 100);
+  'keyup input.halt, blur input.halt': function(e, t) {
+    Session.set("halt", t.find(".halt").value);
   },
-  'keyup input.pris': function(e, t) {
+  'keyup input.pris, blur input.pris': function(e, t) {
     Session.set("pris", t.find(".pris").value);
   }
+});
+
+Template.page.helpers({
+	mangdErrorMessage: function() {
+    	return (Session.get("mangd") == "") ? "Mängd saknas" : "";
+	},
+	haltErrorMessage: function() {
+    	return (Session.get("halt") == "") ? "Alkoholhalt saknas" : "";
+	},
+	prisErrorMessage: function() {
+    	return (Session.get("pris") == "") ? "Pris saknas" : "";
+	}
 });
 
 Handlebars.registerHelper("latlon", function(position) {
