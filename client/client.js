@@ -95,14 +95,19 @@ Template.list.events({
     Session.set("creator", t.find(".creator").value);
     var type = t.find(".type").value;
     //console.log("Test: "+name+" : "+creator+" : "+type+" : "+Session.get("apk"));
-    if (Session.get("name") != "" && Session.get("creator") != "") {
+    if (Session.get("name") != "" && Session.get("creator") != "" 
+    	&& Session.get("mangd") != "" && Session.get("halt") != "" 
+    	&& Session.get("pris") != "") {
       Calculations.insert({
         name: Session.get("name"),
         creator: Session.get("creator"),
         type: type,
         location: Session.get("location"),
         apk: Session.get("apk"),
-        datetime: (new Date()).getTime()
+        datetime: (new Date()).getTime(),
+        mangd: Session.get("mangd"),
+        halt: Session.get("halt"),
+        pris: Session.get("pris")
       });
     }
   },
