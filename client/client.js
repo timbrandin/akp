@@ -50,7 +50,17 @@ Handlebars.registerHelper("latlon", function(position) {
   return "";
   // link
   // https://www.google.se/maps/preview#!q=57.7034%2C11.933
-})
+});
+
+Handlebars.registerHelper("linkpos", function(position) {
+  console.log(position);
+  if (position) {
+    return "https://www.google.se/maps/preview#!q="+position.coords.latitude+","+position.coords.longitude;
+  }
+  return "";
+  // link
+  // https://www.google.se/maps/preview#!q=57.7034%2C11.933
+});
 
 Template.list.helpers({
   items: function() {
