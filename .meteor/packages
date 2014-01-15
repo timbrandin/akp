@@ -9,3 +9,6 @@ insecure
 preserve-inputs
 bootstrap
 less
+http
+blocking
+xml2js

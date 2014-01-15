@@ -54,24 +54,10 @@ Template.page.helpers({
 	}
 });
 
-Handlebars.registerHelper("latlon", function(position) {
-  console.log(position);
-  if (position) {
-    return Math.round(10000 * position.coords.latitude) / 10000 + " " + Math.round(10000 * position.coords.longitude) / 10000;
-  }
-  return "";
-  // link
-  // https://www.google.se/maps/preview#!q=57.7034%2C11.933
-});
-
 Handlebars.registerHelper("linkpos", function(position) {
-  console.log(position);
   if (position) {
-    return "https://www.google.se/maps/preview#!q="+position.coords.latitude+","+position.coords.longitude;
+    return "https://maps.google.com/maps?q="+position.coords.latitude+","+position.coords.longitude;
   }
-  return "";
-  // link
-  // https://www.google.se/maps/preview#!q=57.7034%2C11.933
 });
 
 Template.list.helpers({
